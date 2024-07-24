@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
@@ -6,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Parse JSON bodies
+app.use(cors());
 app.use(express.json());
 
 // Nodemailer transporter setup
